@@ -16,6 +16,7 @@ services:
       - .:/usr/src/app
     depends_on:
        - postgres
+    env_file: ./web/.env
 
   postgres:
     restart: always

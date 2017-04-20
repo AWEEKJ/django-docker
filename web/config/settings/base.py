@@ -7,22 +7,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
-with open("secrets.json") as f:
-    data = json.loads(f.read())
-
-SecretsNamedTuple = namedtuple('SecretsNamedTuple', data.keys(), verbose=False)
-secrets = SecretsNamedTuple(*[data[x] for x in data.keys()])
-
-
-def get_secret(setting, secrets=secrets):
-    try:
-        return getattr(secrets, setting)
-    except KeyError:
-        error_msg = "Set the {0} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
-
-SECRET_KEY = get_secret("SECRET_KEY")
+SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True
 
@@ -83,11 +68,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': get_secret("POSTGRES_DB"),
-        'USER': get_secret("POSTGRES_USER"),
-        'PASSWORD': get_secret("POSTGRES_PASSWORD"),
-        'HOST': 'postgres',
-        'PORT': '',  # default port
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASS'],
+        'HOST': os.environ['DB_SERVICE'],
+        'PORT': os.environ['DB_PORT'],
     }
 }
 
