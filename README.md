@@ -1,3 +1,3 @@
 ```bash
-$ sh rebuild-docker.sh
+$ sh build-docker.sh
 ```

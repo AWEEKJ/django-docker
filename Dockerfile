@@ -31,10 +31,6 @@ RUN pip3 install --upgrade pip && pip3 install -r $CONTAINER_PROJECT/requirement
 # 5432 = Postgresql
 EXPOSE 80 8000 5432
 
-#COPY ./nginx/nginx.conf /etc/nginx/sites-available/
-#RUN ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled
-#RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-
 WORKDIR $CONTAINER_HOME
 COPY ./entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
