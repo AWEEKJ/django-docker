@@ -20,7 +20,7 @@ WORKDIR $CONTAINER_HOME
 RUN mkdir logs
 
 # Copy application source code to $CONTAINER_PROJECT
-COPY . $CONTAINER_HOME
+COPY . $CONTAINER_PROJECT
 
 # Install Python dependencies
 RUN pip3 install --upgrade pip && pip3 install -r $CONTAINER_PROJECT/requirements.txt
@@ -31,6 +31,6 @@ RUN pip3 install --upgrade pip && pip3 install -r $CONTAINER_PROJECT/requirement
 # 5432 = Postgresql
 EXPOSE 80 8000 5432
 
-WORKDIR $CONTAINER_HOME
+WORKDIR $CONTAINER_PROJECT
 COPY ./entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
