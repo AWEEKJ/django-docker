@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Wait for Database setup
+sleep 5
+
 cd /usr/src/app/web
 python3 manage.py migrate
 
