@@ -11,6 +11,7 @@ DB_USER=test
 DB_PASS=test
 DB_SERVICE=postgres
 DB_PORT=5432
+...
 ```
 
 DB_SERVICE and DB_PORT are used in docker-compose.yml and Dockerfile, so recommend not to change.
@@ -26,5 +27,5 @@ server_name example.org;
 3. Build
 
 ```bash
-$ sh build-docker.sh
+$ sudo sh build-docker.sh
 ```

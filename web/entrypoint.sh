@@ -1,5 +1,4 @@
 #!/bin/bash
-export DJANGO_SETTINGS_MODULE=config.settings.local
 cd /usr/src/app/web
 python3 manage.py migrate
 
