@@ -5,6 +5,7 @@ sleep 5
 
 cd /usr/src/app/web
 python3 manage.py migrate
+python3 manage.py collectstatic --no-input -c
 
 # Start Gunicorn processes
 echo Starting Gunicorn.

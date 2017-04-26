@@ -23,7 +23,7 @@ RUN mkdir logs
 COPY . $CONTAINER_PROJECT
 
 # Install Python dependencies
-RUN pip3 install --upgrade pip && pip3 install -r $CONTAINER_PROJECT/requirements.txt
+RUN pip3 install --upgrade pip && pip3 install -r $CONTAINER_PROJECT/requirements_prod.txt
 
 # Port to expose
 # 80 = Nginx
