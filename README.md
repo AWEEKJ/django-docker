@@ -16,6 +16,8 @@ DB_PORT=5432
 
 DB_SERVICE and DB_PORT are used in docker-compose.yml and Dockerfile, so recommend not to change.
 
+When upload project to github or whatever, make sure to add `.env` to `.gitignore` 
+
 2. Set Domain name in `nginx/nginx.conf`
 
 ```bash

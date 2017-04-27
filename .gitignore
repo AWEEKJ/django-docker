@@ -4,3 +4,5 @@ data
 env
 db.sqlite3
 #.env
+node_modules
+staticfiles
